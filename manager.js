@@ -27,6 +27,8 @@ var options = function(){
                 viewProduct()
                 break;
             case "View Low Inventory":
+                viewLowInventory()
+                break;
             case "Add to Inventory":
             case "Add New Product":
 
@@ -47,5 +49,18 @@ var viewProduct = function(){
         console.log("\n----------------------------------------------------------------------\n")
         console.table(productArr[0], productArr.slice(1))
         console.log("----------------------------------------------------------------------\n")
+        connection.end()
+    })
+}
+
+var viewLowInventory = function(){
+    connection.query("SELECT * FROM products WHERE stock_quantity < 15", function(err, res){
+        if(err) throw err;
+        console.log("\nItems with low inventory:\n-------------------------")
+        
+        for (var i = 0; i < res.length; i++){
+            console.log(res[i].product_name)
+        }
+        connection.end()
     })
 }
