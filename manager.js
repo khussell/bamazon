@@ -30,6 +30,8 @@ var options = function(){
                 viewLowInventory()
                 break;
             case "Add to Inventory":
+                addToInventory()
+                break;
             case "Add New Product":
 
         }
@@ -62,5 +64,41 @@ var viewLowInventory = function(){
             console.log(res[i].product_name)
         }
         connection.end()
+    })
+}
+
+var addToInventory = function(){
+    inquirer.prompt([{
+        message: "What is the id of the product you would like to add?",
+        type: "input",
+        name: "whatProductID"
+    },{
+        message: "What quantity of the product would you like to add?",
+        type: "input",
+        name: "whatProductQuantity"
+    }]).then(function(answer){
+        var query = "SELECT * FROM products WHERE products.item_id = " + answer.whatProductID
+        connection.query(query, function(err, res){
+            if(err) throw err;
+           
+           
+                var newQuantity =  res[0].stock_quantity + parseInt(answer.whatProductQuantity);
+                
+                connection.query("UPDATE products SET ? WHERE ?",
+                [
+                  {
+                    stock_quantity: newQuantity
+                  },
+                  {
+                    item_id: answer.whatProductID 
+                  }
+                ], function(err, response){
+                    if (err) throw err;
+                    console.log(response.affectedRows + " product updated!\n")
+                    console.log(res[0].product_name + " now has a quantity of " + newQuantity)
+                    connection.end()
+                })
+            
+        })
     })
 }
