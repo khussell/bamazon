@@ -46,7 +46,20 @@ var purchase = function(){
                 }else{
                     var newQuantity =  res[0].stock_quantity - answer.whatProductQuantity;
                     var purchaseCost = answer.whatProductQuantity * res[0].price
+                    var productSales = res[0].product_sales + (purchaseCost)
                     
+                    connection.query("UPDATE products SET ? WHERE ?",
+                    [
+                      {
+                        product_sales: productSales
+                      },
+                      {
+                        item_id: answer.whatProductID 
+                      }
+                    ], function(err, res){
+                        if (err) throw err;
+                    })
+
                     connection.query("UPDATE products SET ? WHERE ?",
                     [
                       {
