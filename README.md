@@ -24,7 +24,7 @@ The supervisor will be prompted to choose to view all product sales by departmen
 
 ## What you will need?
 
-You will need to clone this repo, set up your own package.json, install npm packages for mysql, inquirer, console.table, and in mysql workbench paste the info in bamazon.sql.
+You will need to clone this repo, set up your own package.json, install npm packages for mysql, inquirer, console.table, and in mysql workbench paste the info from bamazon.sql.
 
 ## What was used to make this app?
 
