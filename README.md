@@ -4,19 +4,19 @@
 
 Bamazon is an Amazon-like storefront that simulates customer, manager, and supervisor actions in the store. This app is used in the command line.
 
-#### Customer Actions:
+### Customer Actions:
 
 type:  node customer.js
 
 The customer will be prompted to select from the table of products what product and quantity of the product they would like to purchase. If the quantity is more than what is in stock, the customer will be alerted.
 
-#### Manager Actions:
+### Manager Actions:
 
 type: node manager.js
 
 The manager will be prompted to choose to view all the products in a table, view what products are low in stock, add more of a product already in the store, or add a new product to the store.
 
-#### Supervisor Actions:
+### Supervisor Actions:
 
 type: node supervisor.js
 
