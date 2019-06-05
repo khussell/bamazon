@@ -31,3 +31,5 @@ You will need to clone this repo, set up your own package.json, install npm pack
 Javascript, Node, Inquirer NPM, mySql workbench, mySql NPM, and console.table NPM
 
 ## Video to see app working:
+
+https://drive.google.com/file/d/1_3u4WNcNdoj0lq4xuoZUWoZ4-VU6SUdm/view
