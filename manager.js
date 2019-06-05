@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
 
 connection.connect(function (err) {
     if (err) throw err;
-    console.log("Connected as id: " + connection.threadId + '\n')
+    //console.log("Connected as id: " + connection.threadId + '\n')
     options();
 });
 
@@ -57,7 +57,7 @@ var viewProduct = function () {
 }
 
 var viewLowInventory = function () {
-    connection.query("SELECT * FROM products WHERE stock_quantity < 15", function (err, res) {
+    connection.query("SELECT * FROM products WHERE stock_quantity < 5", function (err, res) {
         if (err) throw err;
         console.log("\nItems with low inventory:\n-------------------------")
 
